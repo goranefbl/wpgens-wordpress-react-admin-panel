@@ -7,7 +7,7 @@ import { useMutation, useQuery } from 'react-query';
 import { useEffect, useState } from 'react';
 import InlineError from '@/components/InlineError/InlineError';
 import ToggleField from '@/components/Form/ToggleField/ToggleField';
-import Alert from '@/components/Alert/Alert';
+import Alert, { alertMsgType } from '@/components/Alert/Alert';
 import InputText from '@/components/Form/InputText/InputText';
 import { setGeneralSettings, getGeneralSettings } from '@/services/settings.service';
 import TextArea from '@/components/Form/TextArea/TextArea';
@@ -97,7 +97,7 @@ export default function DisplaySettings() {
 			className='max-w-5xl px-6'
 			onSubmit={handleSubmit(
 				(d) => mutate(d),
-				(err) => setError(JSON.stringify(err)),
+				(err) => setError(JSON.stringify(err))
 			)}
 		>
 			<header className='mb-8'>
@@ -191,7 +191,7 @@ export default function DisplaySettings() {
 					</div>
 				</div>
 			</div>
-			{isSuccess && <Alert message='Settings Saved.' type='success' />}
+			{isSuccess && <Alert message='Settings Saved.' type={alertMsgType.success} />}
 			{error && <InlineError error={error} />}
 			<div className='text-right'>
 				<button type='submit' disabled={submitLoading} className='btn-primary mt-2'>

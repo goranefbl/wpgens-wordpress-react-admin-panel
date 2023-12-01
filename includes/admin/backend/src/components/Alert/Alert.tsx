@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
-export enum errorType {
+export enum alertMsgType {
 	success = 'success',
 	error = 'error',
 }
 
 type AlertType = {
 	message: string;
-	type: errorType;
+	type: alertMsgType;
 	action?: () => void;
 	permament?: boolean;
 };

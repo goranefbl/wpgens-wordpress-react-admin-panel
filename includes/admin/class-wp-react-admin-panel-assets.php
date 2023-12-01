@@ -30,13 +30,31 @@ class WP_React_Admin_Panel_Assets
 			$root = rest_url(PLUGIN_NAME_REST_API_ROUTE . '/');
 			$baseUrl = PLUGIN_NAME_URL; // can be used for assets
 
+			// Posts Example
+			$args = array(
+				'post_type' => 'post', // Change to your custom post type if needed
+				'posts_per_page' => 10, // Number of posts to display
+				'post_status' => 'publish', // Fetch only published posts
+				// Add more parameters as needed
+			);
+			$posts = [];
+			$query = new WP_Query($args);
+			foreach ($query->posts as $post) {
+				$posts[] = array('postName' => $post->post_name);
+				$posts[] = array('postName' => $post->post_name);
+				$posts[] = array('postName' => $post->post_name);
+				$posts[] = array('postName' => $post->post_name);
+			}
+			// End of Posts Example
+
 			if (defined('PLUGIN_NAME_DEV') && PLUGIN_NAME_DEV) {
 ?>
 				<script>
 					var pluginName = {
 						apiNonce: '<?php echo $apiNonce; ?>',
 						root: '<?php echo $root; ?>',
-						baseUrl: '<?php echo $baseUrl; ?>'
+						baseUrl: '<?php echo $baseUrl; ?>',
+						posts: '<?php echo json_encode($posts); ?>'
 					}
 				</script>
 				<script type="module">

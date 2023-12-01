@@ -12,3 +12,6 @@ Track Order Source for WooCommerce.
 == Description ==
 
 Track Order Source for WooCommerce.
+
+
+When building plugin for production, you want to exclude backend folder. You just need the build file that is in assets/js folder and thats it.

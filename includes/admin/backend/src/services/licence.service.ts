@@ -1,5 +1,5 @@
 import apiFetch from '@wordpress/api-fetch';
-import { LicenceRequest } from '../views/Licence';
+import { LicenceRequest } from '../views/Licence/Licence';
 
 type GetLicenseResponse = {
 	gens_raf_license_key: string;
