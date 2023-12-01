@@ -14,7 +14,7 @@ const queryClient = new QueryClient({
 	},
 });
 
-interface GensRafObject {
+interface AdminPanelGLobals {
 	root: string;
 	apiNonce: string;
 	cats: { value: number; label: string }[];
@@ -22,7 +22,7 @@ interface GensRafObject {
 }
 
 declare global {
-	var pluginName: GensRafObject;
+	var pluginName: AdminPanelGLobals;
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -30,5 +30,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 		<QueryClientProvider client={queryClient}>
 			<App />
 		</QueryClientProvider>
-	</React.StrictMode>
+	</React.StrictMode>,
 );
