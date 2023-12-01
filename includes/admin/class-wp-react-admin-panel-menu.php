@@ -38,20 +38,6 @@ class WP_React_Admin_Panel_Menu
 	 */
 	public function display_react_admin_page()
 	{
-
-		if (defined('PLUGIN_NAME_DEV') && PLUGIN_NAME_DEV) {
-?>
-			<script type="module">
-				import RefreshRuntime from "http://localhost:5173/@react-refresh"
-				RefreshRuntime.injectIntoGlobalHook(window)
-				window.$RefreshReg$ = () => {}
-				window.$RefreshSig$ = () => (type) => type
-				window.__vite_plugin_react_preamble_installed__ = true
-			</script>
-			<script type="module" src="http://localhost:5173/@vite/client"></script>
-			<script type="module" src="http://localhost:5173/src/main.tsx"></script>
-<?php
-		}
 		echo "<div id='root'></div>";
 	}
 

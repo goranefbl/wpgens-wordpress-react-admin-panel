@@ -83,7 +83,6 @@ class WP_React_Admin_Panel_API
             $prefix . 'viber',
             $prefix . 'linkedin',
             $prefix . 'pinterest',
-
         );
         return $options;
     }

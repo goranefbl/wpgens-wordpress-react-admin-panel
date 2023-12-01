@@ -1,8 +1,8 @@
 /* eslint-disable no-var */
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "react-query";
-import App from "./App.tsx";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import App from './App.tsx';
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -16,16 +16,16 @@ const queryClient = new QueryClient({
 
 interface GensRafObject {
 	root: string;
-	api_nonce: string;
+	apiNonce: string;
 	cats: { value: number; label: string }[];
 	products: { value: number; label: string }[];
 }
 
 declare global {
-	var plugin_name: GensRafObject;
+	var pluginName: GensRafObject;
 }
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
 			<App />

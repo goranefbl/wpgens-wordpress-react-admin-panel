@@ -33,8 +33,8 @@ final class WP_React_Admin_Panel
         if (is_admin()) {
             require_once(PLUGIN_NAME_ABSPATH . 'includes/admin/class-wp-react-admin-panel-menu.php');
             require_once(PLUGIN_NAME_ABSPATH . 'includes/admin/class-wp-react-admin-panel-assets.php');
-            require_once(PLUGIN_NAME_ABSPATH . 'includes/admin/class-wp-react-admin-panel-api.php');
         }
+        require_once(PLUGIN_NAME_ABSPATH . 'includes/admin/class-wp-react-admin-panel-api.php');
     }
     /**
      * Define Plugin Constants.
@@ -43,7 +43,7 @@ final class WP_React_Admin_Panel
     private function define_constants()
     {
         $this->define('PLUGIN_NAME_DEV', true);
-        $this->define('PLUGIN_NAME_REST_API_ROUTE', 'your-plugin/v1/');
+        $this->define('PLUGIN_NAME_REST_API_ROUTE', 'plugin-name/v1');
         $this->define('PLUGIN_NAME_URL', plugin_dir_url(__FILE__));
         $this->define('PLUGIN_NAME_ABSPATH', dirname(__FILE__) . '/');
         $this->define('PLUGIN_NAME_VERSION', $this->get_version());
