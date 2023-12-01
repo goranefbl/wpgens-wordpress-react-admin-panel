@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-primary {
+	@apply disabled:bg-gray-200 inline-block px-8 py-2 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white rounded-md font-medium transition-colors duration-300 h-11 min-w-[144px];
+}
+.table-info a {
+	@apply text-orange-400 underline;
+}
+
+
+/* Loader */
+.adl-loading-indicator {
+	color: #00112c;
+	font-family: fakt,-apple-system,blinkmacsystemfont,"Segoe UI",roboto,oxygen,ubuntu,cantarell,"Open Sans","Helvetica Neue",sans-serif;
+	font-size: 15px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 100;
+	line-height: 1.4;
+	display: inline-block;
+	min-height: 24px;
+	min-width: 24px;
+	position: relative
+  }
+  
+  .adl-loading-indicator::after {
+	animation: adl-progress-circular-rotate 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+	border: 3px solid #dce0e5;
+	border-radius: 50%;
+	border-top-color: #06f;
+	content: "";
+	display: block;
+	height: min-content;
+	left: 0;
+	min-height: 24px;
+	min-width: 24px;
+	position: absolute;
+	top: 0;
+	width: min-content
+  }
+  
+  .adl-loading-indicator--large {
+	min-height: 48px;
+	min-width: 48px
+  }
+  
+  .adl-loading-indicator--large::after {
+	min-height: 48px;
+	min-width: 48px
+  }
+  
+  .adl-loading-indicator--small {
+	min-height: 16px;
+	min-width: 16px
+  }
+  
+  .adl-loading-indicator--small::after {
+	min-height: 16px;
+	min-width: 16px
+  }
+  .adl-loading-indicator,.adl-loading-indicator::before,.adl-loading-indicator::after {
+	box-sizing: border-box
+  }
+  
+  @keyframes adl-progress-circular-rotate {
+	100% {
+		transform: rotate(360deg)
+	}
+  }
+  
+.tag-alt {
+	@apply bg-blue-500 ring-blue-500 inline-flex h-[6px] w-[6px] ring-opacity-25 rounded-full ring-4 mx-3 capitalize;
+}
+.email_share,
+.user_referred {
+	@apply bg-purple-500 ring-purple-500 ring-opacity-25;
+}
+.coupon_applied {
+	@apply bg-yellow-400 ring-yellow-500 ring-opacity-25;
+}
+.new_order,
+.Completed {
+	@apply bg-green-500 ring-green-500 ring-opacity-25;
+}
+
+.new_coupon {
+	@apply bg-blue-500 ring-blue-500 ring-opacity-25;
+}
+.email_sent,
+.hold {
+	@apply bg-red-500 ring-red-500 ring-opacity-25;
+}
+.tag-canceled {
+	@apply bg-gray-500 ring-gray-500 ring-opacity-25;
+}
