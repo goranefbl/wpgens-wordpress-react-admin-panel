@@ -28,7 +28,7 @@ const options = [
 	},
 ];
 
-export default function Advocates() {
+export default function Users() {
 	const [customers, setCustomers] = useState<CustomersResponse>();
 	const [days, setDays] = useState('90');
 
@@ -58,7 +58,7 @@ export default function Advocates() {
 			<header className='mb-8'>
 				<div className='flex justify-between items-end'>
 					<div>
-						<h2 className='text-2xl font-bold'>Advocates List</h2>
+						<h2 className='text-2xl font-bold'>Users List</h2>
 						<span className='text-sm block mt-1'>List of customers that referred friends.</span>
 					</div>
 					<div>

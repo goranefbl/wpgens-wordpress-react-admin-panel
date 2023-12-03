@@ -28,8 +28,8 @@ export default function Sidebar({ sidebarVisible, setPage, page }: SidebarProps)
 			<div className='mt-6 h-full overflow-y-auto w-72'>
 				<Logo />
 				<ul className='px-5 mb-4'>
-					<MenuItem page={page} setPage={setPage} isActive={page === Pages.Orders} title={Pages.Orders} Image={DashboardSVG} />
-					<MenuItem page={page} setPage={setPage} isActive={page === Pages.Advocates} title={Pages.Advocates} Image={UserSVG} />
+					<MenuItem page={page} setPage={setPage} isActive={page === Pages.Posts} title={Pages.Posts} Image={DashboardSVG} />
+					<MenuItem page={page} setPage={setPage} isActive={page === Pages.Users} title={Pages.Users} Image={UserSVG} />
 					<MenuItem
 						page={page}
 						setPage={setPage}

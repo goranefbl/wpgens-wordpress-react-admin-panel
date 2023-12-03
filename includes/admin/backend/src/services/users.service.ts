@@ -1,8 +1,5 @@
 import apiFetch from '@wordpress/api-fetch';
 
-apiFetch.use(apiFetch.createRootURLMiddleware(window.pluginName?.root));
-apiFetch.use(apiFetch.createNonceMiddleware(window.pluginName?.apiNonce));
-
 export type CustomersResponse = {
 	total: {
 		amount: number;

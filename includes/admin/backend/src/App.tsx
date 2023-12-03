@@ -1,15 +1,16 @@
+import apiFetch from '@wordpress/api-fetch';
 import { useState } from 'react';
-import './assets/index.css';
+import './assets/css/index.css';
 import MainLayout from './components/MainLayout/MainLayout';
 import GeneralSettings from './views/Settings/GeneralSettings';
 import DisplaySettings from './views/Settings/DisplaySettings';
 import Licence from './views/Licence/Licence';
-import Orders from './views/Orders/Orders';
-import Advocates from './views/Advocates/Advocates';
+import Posts from './views/Posts/Posts';
+import Users from './views/Users/Users';
 
 export enum Pages {
-	Orders = 'Orders',
-	Advocates = 'Advocates',
+	Posts = 'Posts',
+	Users = 'Users',
 	Settings = 'Settings',
 	SettingsGeneral = 'SettingsGeneral',
 	SettingsDisplay = 'SettingsDisplay',
@@ -17,13 +18,16 @@ export enum Pages {
 	WPGensPlugins = 'WPGens Plugins',
 }
 
+apiFetch.use(apiFetch.createRootURLMiddleware(window.pluginName?.root));
+apiFetch.use(apiFetch.createNonceMiddleware(window.pluginName?.apiNonce));
+
 function App() {
-	const [page, setPage] = useState(Pages.Orders);
+	const [page, setPage] = useState(Pages.Posts);
 
 	return (
 		<MainLayout page={page} setPage={setPage}>
-			{page === Pages.Orders && <Orders />}
-			{page === Pages.Advocates && <Advocates />}
+			{page === Pages.Posts && <Posts />}
+			{page === Pages.Users && <Users />}
 			{page === Pages.SettingsGeneral && <GeneralSettings />}
 			{page === Pages.SettingsDisplay && <DisplaySettings />}
 			{page === Pages.Licence && <Licence />}

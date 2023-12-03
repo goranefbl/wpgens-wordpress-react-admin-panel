@@ -1,16 +1,14 @@
 import apiFetch from '@wordpress/api-fetch';
 
-apiFetch.use(apiFetch.createRootURLMiddleware(window.pluginName?.root));
-apiFetch.use(apiFetch.createNonceMiddleware(window.pluginName?.apiNonce));
-
-export type LogsResponse = {
-	num_of_pages: number;
+export type PostsResponse = {
+	numOfPages: number;
 	data: {
-		date: string;
-		info: string;
-		type: string;
-		type_name: string;
+		postID: string;
+		postName: string;
+		postDate: string;
+		postAuthor: string;
+		postStatus: string;
 	}[];
 };
 
-export const getEventsService = (page: number) => apiFetch<LogsResponse>({ path: `/events/${page}` }).then((response) => response);
+export const getPostsService = (page: number) => apiFetch<PostsResponse>({ path: `/posts/${page}` }).then((response) => response);

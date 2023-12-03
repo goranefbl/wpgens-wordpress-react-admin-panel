@@ -35,7 +35,7 @@
 }
 
 /* Loader */
-.adl-loading-indicator {
+.wpgens-loading-indicator {
 	color: #00112c;
 	font-family: fakt,-apple-system,blinkmacsystemfont,"Segoe UI",roboto,oxygen,ubuntu,cantarell,"Open Sans","Helvetica Neue",sans-serif;
 	font-size: 15px;
@@ -49,7 +49,7 @@
 	position: relative
 }
   
-.adl-loading-indicator::after {
+.wpgens-loading-indicator::after {
 	animation: adl-progress-circular-rotate 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 	border: 3px solid #dce0e5;
 	border-radius: 50%;
@@ -65,26 +65,26 @@
 	width: min-content
 }
   
-.adl-loading-indicator--large {
+.wpgens-loading-indicator--large {
 	min-height: 48px;
 	min-width: 48px
 }
   
-.adl-loading-indicator--large::after {
+.wpgens-loading-indicator--large::after {
 	min-height: 48px;
 	min-width: 48px
 }
   
-.adl-loading-indicator--small {
+.wpgens-loading-indicator--small {
 	min-height: 16px;
 	min-width: 16px
 }
   
-.adl-loading-indicator--small::after {
+.wpgens-loading-indicator--small::after {
 	min-height: 16px;
 	min-width: 16px
 }
-.adl-loading-indicator,.adl-loading-indicator::before,.adl-loading-indicator::after {
+.wpgens-loading-indicator,.wpgens-loading-indicator::before,.wpgens-loading-indicator::after {
 	box-sizing: border-box
 }
   

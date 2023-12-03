@@ -28,7 +28,7 @@ class WP_React_Admin_Panel_Menu
 	 */
 	public function register_menu()
 	{
-		add_menu_page(__('WP Admin Panel', 'wpgens-st'), __('WP Admin Panel', 'wpgens-st'), 'manage_options', 'plugin-name', array($this, 'display_react_admin_page'), 'dashicons-menu');
+		add_menu_page(__('WP Admin Panel', 'plugin-name'), __('WP Admin Panel', 'plugin-name'), 'manage_options', 'plugin-name', array($this, 'display_react_admin_page'), 'dashicons-menu');
 	}
 
 	/**

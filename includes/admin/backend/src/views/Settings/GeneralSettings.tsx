@@ -14,33 +14,33 @@ import { emptyStringToNull } from '@/utils/helpers';
 import Loader from '@/components/Loader/Loader';
 
 export type GeneralSettingsRequest = {
-	gens_raf_disable?: boolean;
-	gens_raf_hide_no_orders_text?: string;
-	gens_raf_cookie_time?: number | null;
-	gens_raf_min_ref_order?: number | null;
-	gens_raf_cookie_remove?: boolean;
-	gens_raf_allow_guests?: boolean;
-	gens_raf_hide_no_orders?: boolean;
-	gens_raf_referral_codes?: boolean;
-	gens_raf_subscription?: boolean;
-	gens_raf_subscription_all_coupons?: boolean;
-	gens_raf_subscription_exclude_shipping?: boolean;
+	my_plugin_disable?: boolean;
+	my_plugin_hide_no_orders_text?: string;
+	my_plugin_cookie_time?: number | null;
+	my_plugin_min_ref_order?: number | null;
+	my_plugin_cookie_remove?: boolean;
+	my_plugin_allow_guests?: boolean;
+	my_plugin_hide_no_orders?: boolean;
+	my_plugin_referral_codes?: boolean;
+	my_plugin_subscription?: boolean;
+	my_plugin_subscription_all_coupons?: boolean;
+	my_plugin_subscription_exclude_shipping?: boolean;
 };
 
 const schema = yup
 	.object()
 	.shape({
-		gens_raf_disable: yup.boolean().optional(),
-		gens_raf_hide_no_orders_text: yup.string(),
-		gens_raf_cookie_time: yup.number().transform(emptyStringToNull).nullable(),
-		gens_raf_min_ref_order: yup.number().transform(emptyStringToNull).nullable(),
-		gens_raf_cookie_remove: yup.boolean().optional(),
-		gens_raf_allow_guests: yup.boolean().optional(),
-		gens_raf_hide_no_orders: yup.boolean().optional(),
-		gens_raf_referral_codes: yup.boolean().optional(),
-		gens_raf_subscription: yup.boolean().optional(),
-		gens_raf_subscription_all_coupons: yup.boolean().optional(),
-		gens_raf_subscription_exclude_shipping: yup.boolean().optional(),
+		my_plugin_disable: yup.boolean().optional(),
+		my_plugin_hide_no_orders_text: yup.string(),
+		my_plugin_cookie_time: yup.number().transform(emptyStringToNull).nullable(),
+		my_plugin_min_ref_order: yup.number().transform(emptyStringToNull).nullable(),
+		my_plugin_cookie_remove: yup.boolean().optional(),
+		my_plugin_allow_guests: yup.boolean().optional(),
+		my_plugin_hide_no_orders: yup.boolean().optional(),
+		my_plugin_referral_codes: yup.boolean().optional(),
+		my_plugin_subscription: yup.boolean().optional(),
+		my_plugin_subscription_all_coupons: yup.boolean().optional(),
+		my_plugin_subscription_exclude_shipping: yup.boolean().optional(),
 	})
 	.required();
 
@@ -108,7 +108,7 @@ export default function GeneralSettings() {
 					<div className='flex justify-between items-center bg-white p-6 rounded-xl border border-gray-200 mb-4 w-full'>
 						<ToggleField
 							register={register}
-							name='gens_raf_disable'
+							name='my_plugin_disable'
 							label='Disable Referral Program'
 							description='Check to disable. Referral program will be hidden, links and codes wont work.'
 						/>
@@ -124,19 +124,19 @@ export default function GeneralSettings() {
 					<div className='bg-white p-6 rounded-xl border border-gray-200 mb-4'>
 						<ToggleField
 							register={register}
-							name='gens_raf_referral_codes'
+							name='my_plugin_referral_codes'
 							label='Enable Referral Codes'
 							description='By default user can invite friend via link. With this option, user can invite friend with referral code as well. Their friend will insert them as a coupons to get defined discount.'
 						/>
 						<ToggleField
 							register={register}
-							name='gens_raf_allow_guests'
+							name='my_plugin_allow_guests'
 							label='Enable referral links for guests'
 							description='If checked, guests will be able to get referral links as well. This works in shortcode and product tabs.'
 						/>
 						<ToggleField
 							register={register}
-							name='gens_raf_hide_no_orders'
+							name='my_plugin_hide_no_orders'
 							label='Hide referral link for users without any orders'
 							description='If checked, users that dont have at least a single order wont see their referral code and link.'
 						/>
@@ -144,9 +144,9 @@ export default function GeneralSettings() {
 							label='No orders text'
 							placeholder='Referral code is available only to users with at least one order.'
 							description='Text that appears instead of a referral link for users that dont have any orders. If you chose to hide link from them. Place something like: Referral code is available only to users with at least one order.'
-							error={errors.gens_raf_hide_no_orders_text?.message}
+							error={errors.my_plugin_hide_no_orders_text?.message}
 							register={register}
-							name='gens_raf_hide_no_orders_text'
+							name='my_plugin_hide_no_orders_text'
 						/>
 						{!expand && (
 							<div className='block text-right'>
@@ -162,22 +162,22 @@ export default function GeneralSettings() {
 									type='number'
 									placeholder='7'
 									description='How long should user be counted as referral before it expires.(In days) Leave default for 7.'
-									error={errors.gens_raf_cookie_time?.message}
+									error={errors.my_plugin_cookie_time?.message}
 									register={register}
-									name='gens_raf_cookie_time'
+									name='my_plugin_cookie_time'
 								/>
 								<InputText
 									label='Minimum referral order'
 									type='number'
 									placeholder='0'
 									description='Set how much someone needs to purchase in order to generate coupon for referral. Leave empty for 0'
-									error={errors.gens_raf_min_ref_order?.message}
+									error={errors.my_plugin_min_ref_order?.message}
 									register={register}
-									name='gens_raf_min_ref_order'
+									name='my_plugin_min_ref_order'
 								/>
 								<ToggleField
 									register={register}
-									name='gens_raf_cookie_remove'
+									name='my_plugin_cookie_remove'
 									label='Delete Cookie after Purchase'
 									description='If checked, cookie will be deleted after customer makes a purchase.'
 								/>
@@ -203,20 +203,20 @@ export default function GeneralSettings() {
 					<div className='bg-white p-6 rounded-xl border border-gray-200 mb-4'>
 						<ToggleField
 							register={register}
-							name='gens_raf_subscription'
+							name='my_plugin_subscription'
 							label='Enable Integration'
 							description='Check this to enable auto applying of coupons to subscription renewal. Works with payment gateways that support recurring total modifications.'
 						/>
 						<ToggleField
 							register={register}
-							name='gens_raf_subscription_all_coupons'
+							name='my_plugin_subscription_all_coupons'
 							label='Apply All Coupons'
 							description='Checking this means that the plugin will automatically apply all of the users available coupons (if he has more than one) during the next renewal, up to renewal price. If
                         he has more coupons than renewal price, they will be passed to be used during the next renewal period.'
 						/>
 						<ToggleField
 							register={register}
-							name='gens_raf_subscription_exclude_shipping'
+							name='my_plugin_subscription_exclude_shipping'
 							label='Exclude Shipping'
 							description='Check this box if you want to exclude shipping from being discounted in Woo Subscription renewals. This only applies to renewals.'
 						/>

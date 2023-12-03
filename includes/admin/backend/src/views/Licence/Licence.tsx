@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -11,13 +9,13 @@ import { SetLicenseResponse, deactivateLicence, getLicence, setLicence } from '@
 import Loader from '@/components/Loader/Loader';
 
 export type LicenceRequest = {
-	gens_raf_license_key: string;
+	license_key: string;
 };
 
 const schema = yup
 	.object()
 	.shape({
-		gens_raf_license_key: yup.string().required(),
+		license_key: yup.string().required(),
 	})
 	.required();
 
@@ -73,11 +71,8 @@ export default function Licence() {
 			<header className='mb-8'>
 				<h2 className='text-2xl font-bold'>Enable Updates</h2>
 				<span className='text-sm block mt-1'>
-					Thanks for supporting WPGens! Add your licence below to enable updates from your site's Plugins page. You can find license key under account
-					purchase history, or{' '}
-					<a href='https://wpgens.helpscoutdocs.com/article/9-how-to-enable-auto-updates' target='_blank' className='text-orange-400 underline'>
-						read this guide.
-					</a>
+					Thanks for supporting our work! Add your licence below to enable updates from your site's Plugins page. You can find license key under
+					account purchase history.
 				</span>
 			</header>
 			<div className='flexasd md:fadslex-row mb-8'>
@@ -90,9 +85,9 @@ export default function Licence() {
 								label='Licence Key'
 								placeholder=''
 								description=''
-								error={errors.gens_raf_license_key?.message}
+								error={errors.license_key?.message}
 								register={register}
-								name='gens_raf_license_key'
+								name='license_key'
 							/>
 
 							{status && (
@@ -110,7 +105,7 @@ export default function Licence() {
 			</div>
 			{error && <InlineError error={error} />}
 			<div className='text-right'>
-				{license?.gens_raf_license_key && (
+				{license?.license_key && (
 					<button type='button' className='text-red-500 mr-12 underline' onClick={deactivateLicense}>
 						Deactivate Site
 					</button>

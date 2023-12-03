@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Handle frontend scripts
+ * Admin API
  *
  * @since     1.0.0
  */
@@ -33,17 +33,35 @@ class WP_React_Admin_Panel_API
                 'callback' => array($this, 'set_settings'),
                 'permission_callback' => array($this, 'get_permission')
             ));
+
+            // Posts Example
+            register_rest_route(PLUGIN_NAME_REST_API_ROUTE, '/posts/(?P<page>\d+)', array(
+                'methods' => 'GET',
+                'callback' => array($this, 'get_posts'),
+                'args' => array(
+                    'page' => array(
+                        'validate_callback' => function ($param, $request, $key) {
+                            return is_numeric($param);
+                        }
+                    ),
+                ),
+                'permission_callback' => array($this, 'get_permission')
+            ));
+
+            // Licence example
+            register_rest_route(PLUGIN_NAME_REST_API_ROUTE, '/license/', array(
+                'methods' => 'GET',
+                'callback' => array($this, 'get_license'),
+                'permission_callback' => array($this, 'get_permission')
+            ));
         });
     }
 
     /**
      *
-     * Ensures only one instance of AWDP is loaded or can be loaded.
+     * Ensures only one instance is loaded or can be loaded.
      *
      * @since 1.0.0
-     * @static
-     * @see WordPress_Plugin_Template()
-     * @return Main AWDP instance
      */
     public static function instance()
     {
@@ -61,22 +79,26 @@ class WP_React_Admin_Panel_API
     private function registered_settings()
     {
 
-        $prefix = 'wpgens_st_';
+        $prefix = 'my_plugin_';
         $options = array(
             $prefix . 'disable',
             $prefix . 'cookie_time',
             $prefix . 'min_ref_order',
             $prefix . 'cookie_remove',
             $prefix . 'allow_guests',
+            $prefix . 'hide_no_orders',
+            $prefix . 'hide_no_orders_text',
+            $prefix . 'referral_codes',
+            $prefix . 'subscription',
+            $prefix . 'subscription_all_coupons',
+            $prefix . 'subscription_exclude_shipping',
 
             // Product
             $prefix . 'tabs_disable',
             $prefix . 'share_text',
             $prefix . 'guest_text',
-            // My Account
             $prefix . 'my_account_url',
             $prefix . 'myaccount_text',
-            // Share
             $prefix . 'twitter_via',
             $prefix . 'twitter_title',
             $prefix . 'whatsapp',
@@ -89,7 +111,6 @@ class WP_React_Admin_Panel_API
 
     public function get_settings()
     {
-        $result = [];
         foreach ($this->registered_settings() as $key) {
             if ($value = get_option($key)) {
                 $result[$key] = $value;
@@ -118,6 +139,51 @@ class WP_React_Admin_Panel_API
         }
 
         return new WP_REST_Response($data, 200);
+    }
+
+    /*
+        Fetching posts example. You would have this in separate class most probably. 
+    */
+    public function get_posts($request)
+    {
+        $params = $request->get_params();
+        if (isset($params['page']) && is_numeric($params['page'])) {
+            $page = intval($params['page']);
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 10,
+                'post_status' => 'publish',
+                'paged' => $page
+            );
+            $posts = [];
+            $query = new WP_Query($args);
+            $total_pages = $query->max_num_pages;
+            foreach ($query->posts as $post) {
+                $formatted_date = date('M d, Y', strtotime($post->post_date));
+                $author_info = get_userdata($post->post_author);
+
+                $posts[] = array(
+                    'postID'     => $post->ID,
+                    'postName'   => $post->post_title,
+                    'postDate'   => $formatted_date,
+                    'postAuthor' => $author_info ? $author_info->display_name : 'Unknown Author',
+                    'postStatus' => $post->post_status,
+                );
+            }
+            $response = array('numOfPages' => $total_pages, 'data' => $posts);
+            return new WP_REST_Response($response, 200);
+        }
+        return new WP_REST_Response(array('message' => 'Something went wrong!'), 403);
+    }
+
+    /*
+        License example. You would have this in separate class most probably. 
+    */
+    function get_license()
+    {
+        // You would fetch licence key here.
+        $response = array("license_key" => "xxxxxx");
+        return new WP_REST_Response($response, 200);
     }
 
     /**
