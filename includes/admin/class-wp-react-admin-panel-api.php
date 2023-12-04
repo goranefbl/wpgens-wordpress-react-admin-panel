@@ -92,25 +92,13 @@ class WP_React_Admin_Panel_API
             $prefix . 'subscription',
             $prefix . 'subscription_all_coupons',
             $prefix . 'subscription_exclude_shipping',
-
-            // Product
-            $prefix . 'tabs_disable',
-            $prefix . 'share_text',
-            $prefix . 'guest_text',
-            $prefix . 'my_account_url',
-            $prefix . 'myaccount_text',
-            $prefix . 'twitter_via',
-            $prefix . 'twitter_title',
-            $prefix . 'whatsapp',
-            $prefix . 'viber',
-            $prefix . 'linkedin',
-            $prefix . 'pinterest',
         );
         return $options;
     }
 
     public function get_settings()
     {
+        $result = [];
         foreach ($this->registered_settings() as $key) {
             if ($value = get_option($key)) {
                 $result[$key] = $value;

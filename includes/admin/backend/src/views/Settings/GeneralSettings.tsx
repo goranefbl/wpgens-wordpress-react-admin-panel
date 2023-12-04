@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -60,8 +58,8 @@ export default function GeneralSettings() {
 	const { data: generalSettings, isLoading } = useQuery('wpgens-general-settings', getGeneralSettings);
 
 	useEffect(() => {
-		if (generalSettings) {
-			reset(generalSettings as GeneralSettingsRequest);
+		if (generalSettings && !Array.isArray(generalSettings)) {
+			reset(generalSettings);
 		}
 	}, [generalSettings]);
 

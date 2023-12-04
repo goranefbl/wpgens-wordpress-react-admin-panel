@@ -3,7 +3,6 @@ import { useState } from 'react';
 import './assets/css/index.css';
 import MainLayout from './components/MainLayout/MainLayout';
 import GeneralSettings from './views/Settings/GeneralSettings';
-import DisplaySettings from './views/Settings/DisplaySettings';
 import Licence from './views/Licence/Licence';
 import Posts from './views/Posts/Posts';
 import Users from './views/Users/Users';
@@ -29,7 +28,6 @@ function App() {
 			{page === Pages.Posts && <Posts />}
 			{page === Pages.Users && <Users />}
 			{page === Pages.SettingsGeneral && <GeneralSettings />}
-			{page === Pages.SettingsDisplay && <DisplaySettings />}
 			{page === Pages.Licence && <Licence />}
 		</MainLayout>
 	);

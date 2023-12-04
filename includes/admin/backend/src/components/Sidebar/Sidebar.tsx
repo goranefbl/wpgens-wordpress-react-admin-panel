@@ -20,7 +20,7 @@ type SidebarProps = {
 export default function Sidebar({ sidebarVisible, setPage, page }: SidebarProps) {
 	const settingsSubmenu = [
 		{ title: 'General Settings', slug: Pages.SettingsGeneral },
-		{ title: 'Display Settings', slug: Pages.SettingsDisplay },
+		// { title: 'Display Settings', slug: Pages.SettingsDisplay },
 	];
 
 	return (
