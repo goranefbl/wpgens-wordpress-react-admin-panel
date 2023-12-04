@@ -6,7 +6,7 @@ export default function Footer() {
 				<br />
 				Please check our docs.
 			</p>
-			<a href='https://wpgens.helpscoutdocs.com/' target='_blank' className='underline hover:text-white hover:no-underline mb-4' rel='noreferrer'>
+			<a href='https://example.com' target='_blank' className='underline hover:text-white hover:no-underline mb-4' rel='noreferrer'>
 				Documentation
 			</a>
 

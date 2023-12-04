@@ -121,7 +121,7 @@ class WP_React_Admin_Panel_API
                 if (false === get_option($key)) {
                     add_option($key, $sanitized_data);
                 } else {
-                    update_option($key, wp_kses_post($sanitized_data));
+                    update_option($key, $sanitized_data);
                 }
             }
         }

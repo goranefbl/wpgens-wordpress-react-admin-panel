@@ -92,13 +92,10 @@ export default function Users() {
 										Email
 									</th>
 									<th className='px-6 bg-[#344054] text-white align-middle border border-solid border-[#344054] py-4 text-xs uppercase border-l-0 border-r-0 xl:whitespace-nowrap font-semibold text-left'>
-										Referral code
+										Registration Date
 									</th>
 									<th className='px-6 bg-[#344054] text-white align-middle border border-solid border-[#344054] py-4 text-xs uppercase border-l-0 border-r-0 font-semibold text-left'>
-										Total Referrals
-									</th>
-									<th className='px-6 bg-[#344054] text-white align-middle border border-solid border-[#344054] py-4 text-xs uppercase border-l-0 border-r-0 xl:whitespace-nowrap font-semibold text-left'>
-										Referral Earnings
+										Role
 									</th>
 								</tr>
 							</thead>
@@ -124,10 +121,6 @@ export default function Users() {
 										<td className='border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm xl:whitespace-nowrap p-4 '>
 											{customer.num_of_orders}
 										</td>
-										<td
-											className='border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm xl:whitespace-nowrap p-4'
-											dangerouslySetInnerHTML={{ __html: customer.total_amount }}
-										/>
 									</tr>
 								))}
 							</tbody>
