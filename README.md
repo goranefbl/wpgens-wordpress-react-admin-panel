@@ -15,6 +15,7 @@ WPGens WordPress React Admin Panel is a professional looking WordPress administr
 -   [Installation](#installation)
     -   [How to run the demo](#how-to-run)
     -   [How to use in your projects](#how-to-use)
+-   [Improvements](#improvements)
 -   [License](#license)
 -   [Links](#links)
 
@@ -142,6 +143,10 @@ Once you are done, run the pnpm run build that will create a single JS file that
 Thats it.
 
 _Note:_ When ziping plugin files, you do not need a backend folder, just index.js file that was built inside the assets/js folder.
+
+## Improvements
+
+When you have multiple settings for a WordPress plugin, it's generally better to store them as a single array within a single option value rather than creating individual options for each setting. Currently this plugin is creating single option for each value, which was fine for my small plugin, but for bigger plugins you do not want to do that. I will add this change in the next update, it should be pretty straightforward thing to do.
 
 ## License
 
