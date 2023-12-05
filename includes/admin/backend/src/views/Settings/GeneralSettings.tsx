@@ -57,12 +57,6 @@ export default function GeneralSettings() {
 
 	const { data: generalSettings, isLoading } = useQuery('wpgens-general-settings', getGeneralSettings);
 
-	useEffect(() => {
-		if (generalSettings && !Array.isArray(generalSettings)) {
-			reset(generalSettings);
-		}
-	}, [generalSettings]);
-
 	const {
 		isSuccess,
 		isLoading: submitLoading,
@@ -77,6 +71,12 @@ export default function GeneralSettings() {
 			}
 		},
 	});
+
+	useEffect(() => {
+		if (generalSettings && !Array.isArray(generalSettings)) {
+			reset(generalSettings);
+		}
+	}, [generalSettings]);
 
 	if (isLoading) {
 		return (

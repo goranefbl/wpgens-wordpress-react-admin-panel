@@ -4,7 +4,7 @@ import Loader from '@/components/Loader/Loader';
 import { getPostsService, PostsResponse } from '@/services/posts.service';
 
 export default function Posts() {
-	const [posts, setPosts] = useState<PostsResponse>();
+	const [posts, setPosts] = useState<PostsResponse | null>(null);
 	const [page, setPage] = useState(1);
 
 	const { isLoading, mutate } = useMutation<any, void, number, () => void>(getPostsService, {
