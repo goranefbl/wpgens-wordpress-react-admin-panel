@@ -24,7 +24,7 @@ WPGens WordPress React Admin Panel was built to modernize the building and the l
 
 ### Project Stack
 
-WPGens WordPress React Admin Panel is written in **TypeScript**. **React hook form** is used for settings panel forms, **@wordpress/api-fetch** to securily communicate with WordPress backend. **TailWind CSS** for styling (easy to start with, just set up your IDE), **React Query** optimizes data management by efficiently handling fetched data, reducing the need for extensive manual state management, **yup** is used for form validation to ensure data integrity before submission. We are also using **vite** instead of webpack to build the app and serve the HMR. The only UI libraries are **React Select** and **React Color**. We can add more libraries but the goal is to keep it light and simple.
+WPGens WordPress React Admin Panel is written in **TypeScript**. **React hook form** is used for the settings panel forms and **@wordpress/api-fetch** to securely communicate with WordPress backend. **TailWind CSS** for styling (easy to start with, just set up your IDE), **React Query** optimizes data management by efficiently handling fetched data, reducing the need for extensive manual state management, and **yup** is used for form validation to ensure data integrity before submission. We are also using **vite** instead of webpack to build the app and serve the HMR. The only UI libraries are **React Select** and **React Color**. We can add more libraries but the goal is to keep it light and simple.
 
 ### Technology Overview:
 
@@ -34,7 +34,7 @@ Written in Typescript with following libraries:
 
 -   **React**: You know what this is.
 
--   **WordPress API Fetch (@wordpress/api-fetch)**: This package provides functions to interact with the WordPress REST API securly. It allows fetching data from the WordPress backend, enabling seamless integration with WordPress functionalities.
+-   **WordPress API Fetch (@wordpress/api-fetch)**: This package provides functions to interact with the WordPress REST API securely. It allows fetching data from the WordPress backend, enabling seamless integration with WordPress functionalities.
 
 -   **React Hook Form (@react-hook-form)**: A library for managing form state and validation in React using hooks. It simplifies the process of building complex forms by providing an intuitive API.
 
@@ -63,8 +63,7 @@ Open for PR's for more fields like Date picker. But not for big libraries.
 
 ### Project Structure
 
-Project is located under the /backend folder. You probably wont be using PHP files from this repo, they are used to define menu item, enqueue scripts and define API routes which you will do inside your plugin.
-So, /backend folder structure is as follow:
+The project is located under the /backend folder. You probably won't be using PHP files from this repo. They are used to define the menu item, enqueue scripts, and define API routes that you will create inside your plugin. So, /backend folder structure is as follows:
 
 ```bash
 ├── src
@@ -135,14 +134,14 @@ Activate the plugin
    Under the wp-react-admin-panel.php, set PLUGIN_NAME_DEV constant to true. This will load dev server instead of the JS build.
 3. Navigate to the includes/admin/backend and run `bash pnpm i ` (I prefer pnpm, you can use npm).
 4. Once dependencies are installed, run `bash pnpm run dev`. (npm run dev).
-5. Login to your WordPress and navigate to the WP Admin Panel. This should now load dev build. Try changing text to see if changes are showing instantly. HMR should work.
+5. Log in to your WordPress and navigate to the WP Admin Panel. This should now load a dev build. Try changing the text to see if changes are showing instantly. HMR should work.
 
-Once you are done, run the pnpm run build which will create single JS file that you need to enqueue in your projects.
+Once you are done, run the pnpm run build that will create a single JS file that you need to enqueue in your projects.
 ```
 
 Thats it.
 
-_Note:_ When ziping plugin files, you do not need backend folder, just index.js file that was built inside assets/js folder.
+_Note:_ When ziping plugin files, you do not need a backend folder, just index.js file that was built inside the assets/js folder.
 
 ## License
 
