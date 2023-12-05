@@ -42,12 +42,11 @@ final class WP_React_Admin_Panel
      */
     private function define_constants()
     {
-        $this->define('PLUGIN_NAME_DEV', true);
+        $this->define('PLUGIN_NAME_DEV', false);
         $this->define('PLUGIN_NAME_REST_API_ROUTE', 'plugin-name/v1');
         $this->define('PLUGIN_NAME_URL', plugin_dir_url(__FILE__));
         $this->define('PLUGIN_NAME_ABSPATH', dirname(__FILE__) . '/');
         $this->define('PLUGIN_NAME_VERSION', $this->get_version());
-        $this->define('PLUGIN_NAME_DATA', "_PLUGIN_NAME_data");
     }
 
     /**
