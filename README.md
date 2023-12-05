@@ -11,9 +11,10 @@ WPGens WordPress React Admin Panel is a professional looking WordPress administr
 -   [About Project](#about-project)
     -   [Project Stack](#project-stack)
     -   [Technology Overview](#technology-overview)
+    -   [Project Structure](#project-structure)
 -   [Installation](#installation)
     -   [How to run the demo](#how-to-run)
-    -   [How to use on your projects](#ddev)
+    -   [How to use in your projects](#how-to-use)
 -   [License](#license)
 -   [Links](#links)
 
@@ -31,7 +32,7 @@ Written in Typescript with following libraries:
 
 -   **TypeScript**: The entire WPGens WordPress React Admin Panel is written in TypeScript, offering type safety and improved development workflows.
 
--   **React**: A JavaScript library for building user interfaces. It offers a component-based approach to develop interactive UIs efficiently.
+-   **React**: You know what this is.
 
 -   **WordPress API Fetch (@wordpress/api-fetch)**: This package provides functions to interact with the WordPress REST API securly. It allows fetching data from the WordPress backend, enabling seamless integration with WordPress functionalities.
 
@@ -41,7 +42,7 @@ Written in Typescript with following libraries:
 
 -   **React Query (@react-query)**: A library for managing and caching asynchronous data in React applications. It optimizes network requests, caching, and state management, enhancing the performance of data-fetching operations.
 
--   **Yup**: A JavaScript schema validation library used for defining and validating the shape of data. It's often utilized in conjunction with form libraries like React Hook Form for defining validation rules.
+-   **Yup**: is a schema validation library used to define and validate data before sending it to backend.
 
 -   **Vite**: A build tool that offers fast and optimized development and production builds for web applications. It provides a modern development environment with features like hot module replacement (HMR) and lightning-fast build times.
 
@@ -58,7 +59,58 @@ Written in Typescript with following libraries:
 -   TextArea
 -   Color Picker
 
-Open for PR's for more fields like Date picker.
+Open for PR's for more fields like Date picker. But not for big libraries.
+
+### Project Structure
+
+Project is located under the /backend folder. You probably wont be using PHP files from this repo, they are used to define menu item, enqueue scripts and define API routes which you will do inside your plugin.
+So, /backend folder structure is as follow:
+
+```bash
+├── src
+│ ├── assets
+│ │ ├── css
+│ │ │ ├── index.css
+│ │ │ └── ...
+│ │ ├── img
+│ │ │ ├── bg.jpeg
+│ │ │ └── ...
+│ ├── components
+│ │ ├── Button
+│ │ │ ├── Button.tsx
+│ │ ├── Header
+│ │ │ ├── Header.tsx
+│ │ └── ...
+│ ├── hooks
+│ │ ├── useClickOutside.ts
+│ │ └── ...
+│ ├── services
+│ │ ├── settings.service.ts
+│ │ ├── licence.service.ts
+│ │ └── ...
+│ ├── utils
+│ │ ├── helpers.ts
+│ │ └── ...
+│ ├── views
+│ │ ├── Settings
+│ │ │ ├── GeneralSettings.tsx
+│ │ │ ├── AdvanceSettings.tsx
+│ │ │ └── ...
+│ │ ├── Posts
+│ │ │ ├── Posts.tsx
+│ │ └── ...
+├── .eslintrc.cjs
+└── .gitignore
+├── .prettierrc
+├── package.json
+├── pnpm-lock.yaml
+└── postcss.config.js
+└── README.md
+└── tailwind.config.js
+└── tsconfig.json
+└── tsconfig.node.json
+└── vite.config.js
+```
 
 ## Installation
 
@@ -76,16 +128,11 @@ Activate the plugin
 
 ### How to use in your projects
 
-```bash
-Download the repository.
-Copy to the WordPress plugins folder
-Activate the plugin
-Open the project
-Navigate to the includes/admin/backend
-install scripts with pnpm install or npm install
-run pnpm run dev
-Activate the plugin
-```
+1. Download the repository.
+   Copy to the WordPress plugins folder
+2. Open the project.
+   Under the wp-react-admin-panel.php, set PLUGIN_NAME_DEV constant to true. This would load dev server instead of the JS build.
+3. Navigate to the includes/admin/backend and run `bash pnpm i `
 
 _Note:_ When ziping plugin files, you do not need backend folder, just index.js file that was built inside assets/js folder.
 
