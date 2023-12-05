@@ -128,11 +128,19 @@ Activate the plugin
 
 ### How to use in your projects
 
+```bash
 1. Download the repository.
    Copy to the WordPress plugins folder
 2. Open the project.
-   Under the wp-react-admin-panel.php, set PLUGIN_NAME_DEV constant to true. This would load dev server instead of the JS build.
-3. Navigate to the includes/admin/backend and run `bash pnpm i `
+   Under the wp-react-admin-panel.php, set PLUGIN_NAME_DEV constant to true. This will load dev server instead of the JS build.
+3. Navigate to the includes/admin/backend and run `bash pnpm i ` (I prefer pnpm, you can use npm).
+4. Once dependencies are installed, run `bash pnpm run dev`. (npm run dev).
+5. Login to your WordPress and navigate to the WP Admin Panel. This should now load dev build. Try changing text to see if changes are showing instantly. HMR should work.
+
+Once you are done, run the pnpm run build which will create single JS file that you need to enqueue in your projects.
+```
+
+Thats it.
 
 _Note:_ When ziping plugin files, you do not need backend folder, just index.js file that was built inside assets/js folder.
 
